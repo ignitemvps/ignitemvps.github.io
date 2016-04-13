@@ -1,0 +1,149 @@
+ 	 <!doctype html>
+<html ng-app="scanreceive">
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ui-grid.info/release/ui-grid-unstable.js"></script>
+    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid-unstable.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css"/>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+    <link rel="stylesheet" href="css/angular-ui-notification.css">
+<script src="js/angular-ui-notification.js"></script>
+
+  </head>
+          <style>
+        body {
+            background: #34495e;
+        }
+        </style>
+  <body>
+
+<div ng-controller="MainCtrl">
+
+  <h1 style="text-align:center;">QR Code Details <button class="btn btn-warning pull-right" style="margin-right:15px;" ng-click="gotomain()">Go To Main Menu</button></h1>
+  <div id="grid3" ui-grid="gridOptions" ui-grid-edit ui-grid-pinning ui-grid-selection></div>
+</div>
+
+
+<script type="text/ng-template" id="ngTemplate/infoPopup.html">
+
+	<div class="modal-header text-center">
+	            <h4>Receiving by QR Code</h4>
+	</div>
+
+<div class="modal-body" ng-controller="MainCtrl" >
+         <h4 style="align:center;"> <u>SCAN QR CODE BELOW</u></h4>
+            <input style="align:center;" ng-model="imageName" type="image" ng-src="{{selectedRow.QRCode}}" />
+
+     <form class="form-horizontal" name="scanform">
+                 <div class="form-group">
+                   <label class="control-label col-sm-6" style="text-align:left;">Delivery Number:</label>
+                        <div class="col-sm-6">
+                          <input class="form-control" id="delnbr" type="text" id="deliveryno" ng-model="DeliveryNo" autofocus>
+                        </div>
+				 </div>
+
+
+
+           <div class="form-group">
+              <label class="control-label col-sm-6" style="text-align:left;">PO Number:</label>
+                        <div class="col-sm-6">
+                            <input type="text" id="ponbr" class="form-control" ng-disabled="!DeliveryNo" ng-model="PoNbr" required>
+                        </div>
+		   </div>
+
+
+
+
+          <div class="form-group">
+             <label class="control-label col-sm-6" style="text-align:left;">Item Number: </label>
+                        <div class="col-sm-6">
+                            <input type="text" id="itemnbr" class="form-control" ng-disabled="!PoNbr" ng-model="ItemNbr" required>
+                        </div>
+	      </div>
+
+
+
+
+          <div class="form-group">
+            <label class="control-label col-sm-6" style="text-align:left;">Total Qty: </label>
+                      <div class="col-sm-6">
+             <input id="totqty" class="form-control" ng-disabled="!ItemNbr" ng-model="TotQty" required>
+                     </div>
+          </div>
+
+
+
+          <div class="form-group">
+          <label class="control-label col-sm-6" style="text-align:left;">Due Qty: </label>
+          <div class="col-sm-6">
+                <input id="dueqty" class="form-control" ng-disabled="!TotQty" ng-model="DueQty" onfocusout="myfocusout()" required>
+          </div>
+          </div>
+
+
+          <div class="form-group">
+<label class="control-label col-sm-6" style="text-align:left;">Qty to Receive:</label>
+          <div class="col-sm-6">
+          <input id="rcvqty" type="number" class="form-control" ng-disabled="!DueQty" ng-model="rcvqty" ng-pattern="/^[0-9]+$/" min=0 max="{{DueQty}}" required>
+          </div>
+       </div>
+
+          <div class="form-group">
+<label class="control-label col-sm-6" style="text-align:left;">Number of Pallets:</label>
+          <div class="col-sm-6">
+           <input id="pallet" class="form-control" ng-disabled="!rcvqty" ng-model="nopallet" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+             </div>
+          </div>
+
+
+
+          <div class="form-group">
+<label class="control-label col-sm-6" style="text-align:left;">Slot ID:</label>
+          <div class="col-sm-6">
+<select id="slot" class="form-control" ng-disabled="!rcvqty || !nopallet" ng-model="slotsource" ng-options="slt.slot for slt in slotid" required>
+  <option value=''>Select Slot</option>
+</select>
+             </div>
+          </div>
+
+
+
+      <div class="form-group">
+       <label class="control-label col-sm-6" style="text-align:left;">User ID: </label>
+                 <div class="col-sm-6">
+       <input id="userid" type="text" class="form-control" ng-disabled="!rcvqty || !slotsource" ng-model="useridsource" required>
+                 </div>
+	  </div>
+
+</form>
+</div>
+
+<div class="modal-footer" ng-controller="notificationController" >
+	         <div class="btn-group-vertical">
+	          <button class="btn btn-primary" ng-disabled="scanform.$invalid" ng-click="successHtml(PoNbr,ItemNbr,rcvqty,slotsource.slot)">Receive</button>
+	          </div>
+               <button class="btn btn-primary btnCustom" ng-click="cancel()">Cancel</button>
+</div>
+</script>
+<script>
+function myfocusout() {
+    var text_box_1 = document.getElementById("delnbr");
+    var text_box_2 = document.getElementById("ponbr");
+    var text_box_3 = document.getElementById("itemnbr");
+    var text_box_4 = document.getElementById("totqty");
+    var text_box_5 = document.getElementById("dueqty");
+ text_box_1.setAttribute('readonly', 'readonly');
+ text_box_2.setAttribute('readonly', 'readonly');
+ text_box_3.setAttribute('readonly', 'readonly');
+ text_box_4.setAttribute('readonly', 'readonly');
+ text_box_5.setAttribute('readonly', 'readonly');
+}
+</script>
+    <script src="js/scanreceive.js"></script>
+  </body>
+</html>

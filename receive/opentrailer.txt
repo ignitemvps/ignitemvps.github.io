@@ -1,0 +1,21 @@
+[
+{"id":"01", "deliverynbr":"9846132636", "trailernbr":"INAM-055", "carriernbr":"INAM", "truckqty":"1076", "door":"100", "tstatus":"ARRIVED", "sdate":"04/11/2016 23:55"},
+{"id":"02", "deliverynbr":"9846132637", "trailernbr":"YAJI-056", "carriernbr":"YAJI", "truckqty":"1077", "door":"101", "tstatus":"ARRIVED", "sdate":"04/01/2016 11:23"},
+{"id":"03", "deliverynbr":"9846132638", "trailernbr":"IRSK-057", "carriernbr":"IRSK", "truckqty":"1078", "door":"102", "tstatus":"ARRIVED", "sdate":"04/03/2016 13:34"},
+{"id":"04", "deliverynbr":"9846132639", "trailernbr":"ARHP-058", "carriernbr":"ARHP", "truckqty":"1079", "door":"   ", "tstatus":"SCHEDULED", "sdate":"04/05/2016 56:55"},
+{"id":"05", "deliverynbr":"9846132640", "trailernbr":"INAM-059", "carriernbr":"INAM", "truckqty":"1080", "door":"104", "tstatus":"ARRIVED", "sdate":"04/11/2016 17:35"},
+{"id":"06", "deliverynbr":"9846132641", "trailernbr":"INAM-060", "carriernbr":"INAM", "truckqty":"1081", "door":"105", "tstatus":"ARRIVED", "sdate":"04/11/2016 14:45"},
+{"id":"07", "deliverynbr":"9846132642", "trailernbr":"INAM-061", "carriernbr":"INAM", "truckqty":"1082", "door":"   ", "tstatus":"SCHEDULED", "sdate":"04/11/2016 14:12"},
+{"id":"08", "deliverynbr":"9846132643", "trailernbr":"INAM-062", "carriernbr":"INAM", "truckqty":"1083", "door":"107", "tstatus":"ARRIVED", "sdate":"04/11/2016 13:46"},
+{"id":"09", "deliverynbr":"9846132644", "trailernbr":"INAM-063", "carriernbr":"INAM", "truckqty":"1084", "door":"108", "tstatus":"ARRIVED", "sdate":"04/11/2016 22:32"},
+{"id":"10" ,"deliverynbr":"9846132645", "trailernbr":"INAM-064", "carriernbr":"INAM", "truckqty":"1085", "door":"109", "tstatus":"ARRIVED", "sdate":"04/11/2016 21:46"},
+{"id":"11" ,"deliverynbr":"9846132646", "trailernbr":"INAM-065", "carriernbr":"INAM", "truckqty":"1086", "door":"110", "tstatus":"ARRIVED", "sdate":"04/11/2016 03:25"},
+{"id":"12" ,"deliverynbr":"9846132647", "trailernbr":"INAM-066", "carriernbr":"INAM", "truckqty":"1087", "door":"111", "tstatus":"ARRIVED", "sdate":"04/11/2016 13:18"},
+{"id":"13" ,"deliverynbr":"9846132648", "trailernbr":"INAM-067", "carriernbr":"INAM", "truckqty":"1088", "door":"112", "tstatus":"ARRIVED", "sdate":"04/11/2016 11:30"},
+{"id":"14" ,"deliverynbr":"9846132649", "trailernbr":"INAM-068", "carriernbr":"INAM", "truckqty":"1089", "door":"113", "tstatus":"ARRIVED", "sdate":"04/11/2016 09:15"},
+{"id":"15" ,"deliverynbr":"9846132650", "trailernbr":"INAM-069", "carriernbr":"INAM", "truckqty":"1090", "door":"114", "tstatus":"ARRIVED", "sdate":"04/11/2016 05:23"},
+{"id":"16" ,"deliverynbr":"9846132651", "trailernbr":"INAM-070", "carriernbr":"INAM", "truckqty":"1091", "door":"115", "tstatus":"ARRIVED", "sdate":"04/11/2016 06:45"},
+{"id":"17" ,"deliverynbr":"9846132652", "trailernbr":"INAM-071", "carriernbr":"INAM", "truckqty":"1092", "door":"116", "tstatus":"ARRIVED", "sdate":"04/11/2016 13:15"},
+{"id":"18" ,"deliverynbr":"9846132653", "trailernbr":"INAM-072", "carriernbr":"INAM", "truckqty":"1093", "door":"117", "tstatus":"ARRIVED", "sdate":"04/11/2016 16:35"},
+{"id":"19" ,"deliverynbr":"9846345653", "trailernbr":"MANI-072", "carriernbr":"MANI", "truckqty":"0550", "door":"118", "tstatus":"ARRIVED", "sdate":"04/29/2016 14:15"}
+]

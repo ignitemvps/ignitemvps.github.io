@@ -1,0 +1,104 @@
+{
+ "Pos": [
+	{
+	"PoNbr":34567,
+	"Items": [
+	{
+	"ItemNbr":379892,
+	"TotQty":21,
+	"DueQty":12
+	},
+	{
+	"ItemNbr":435672,
+	"TotQty":23,
+	"DueQty":14
+	},
+	{
+	"ItemNbr":876234,
+	"TotQty":35,
+	"DueQty":28
+	}
+  ]
+},
+	{
+	"PoNbr":43562,
+	"Items": [
+	{
+	"ItemNbr":873245,
+	"TotQty":38,
+	"DueQty":19
+	},
+	{
+	"ItemNbr":678345,
+	"TotQty":40,
+	"DueQty":10
+	},
+	{
+	"ItemNbr":987324,
+	"TotQty":41,
+	"DueQty":34
+	}
+  ]
+},
+	{
+	"PoNbr":65412,
+	"Items": [
+	{
+	"ItemNbr":458921,
+	"TotQty":21,
+	"DueQty":0
+	},
+	{
+	"ItemNbr":567214,
+	"TotQty":31,
+	"DueQty":16
+	},
+	{
+	"ItemNbr":568926,
+	"TotQty":21,
+	"DueQty":21
+	}
+  ]
+},
+	{
+	"PoNbr":54398,
+	"Items": [
+	{
+	"ItemNbr":123876,
+	"TotQty":27,
+	"DueQty":11
+	},
+	{
+	"ItemNbr":298456,
+	"TotQty":25,
+	"DueQty":15
+	},
+	{
+	"ItemNbr":908765,
+	"TotQty":34,
+	"DueQty":0
+	}
+  ]
+},
+	{
+	"PoNbr":76435,
+	"Items": [
+	{
+	"ItemNbr":290786,
+	"TotQty":9,
+	"DueQty":2
+	},
+	{
+	"ItemNbr":819546,
+	"TotQty":17,
+	"DueQty":10
+	},
+	{
+	"ItemNbr":298763,
+	"TotQty":11,
+	"DueQty":11
+	}
+  ]
+}
+]
+}

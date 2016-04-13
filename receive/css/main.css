@@ -1,0 +1,90 @@
+
+/*
+ * ui-grid Styles: General
+ * -------------------------
+ */
+ .gridTable {
+    background: white; 
+    width: 100%; 
+ }
+
+#grid1
+{
+  width: 100%;
+ 
+ height: 350px;
+
+}
+#grid2
+{
+  width: 100%;
+ 
+ height: 800px;
+
+}
+
+#grid3
+{
+  width: 100%;
+ 
+ height: 800px;
+
+}
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
+label, input {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 125px;
+}
+
+label {
+    color: #2D2D2D;
+    font-size: 15px;
+}
+
+form, input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+form {
+    width: 300px;
+}
+
+#grid1 .ui-grid-header-cell .ui-grid-cell-contents{
+text-align:center;
+vertical-align: middle;
+}
+
+#grid2 .ui-grid-header-cell .ui-grid-cell-contents{
+text-align:center;
+vertical-align: middle;
+}
+
+#grid3 .ui-grid-header-cell .ui-grid-cell-contents{
+text-align:center;
+vertical-align: middle;
+}
+
+#grid4 .ui-grid-header-cell .ui-grid-cell-contents{
+text-align:center;
+vertical-align: middle;
+}
+
+.ui-grid-cell {
+display: table-cell;
+float: none;
+text-align:center;
+vertical-align: middle;
+height: 50px;
+border: 1px solid black;
+}
+

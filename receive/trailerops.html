@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'>IGNITE-TRAILER OPERATIONS</title>
+
+    <div class="a1">
+
+        <h2> <a href="http://localhost:8080/app/demos/vijay/index.html"><!--img src="styles/images/Home_TOPS.jpg" style="width:82px; height:86px" title="HOME" alt="Home"--></a>TRAILER OPERATIONS</h2>
+    </div>
+    <meta name="description" content="TRAILER OPERATIONS" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 minimum-scale=1" />
+    <link rel="stylesheet" href="css/jqxbase.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+
+        <!-- Core Cascading Style Sheets -->
+    <link href="css/Flash.Mani.css" rel="stylesheet">
+    <link href="css/Flash.manifont.css" rel="stylesheet">
+    <link href="css/Flash.mani.boot.css" rel="stylesheet">
+    <link href="css/Flash.mani.tmrw.css" rel="stylesheet">
+    
+    <!--link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/tomorrow-night-eighties.min.css" rel="stylesheet">
+
+    < Custom Cascading Style Sheets >
+    <link href="css/icomoon.css" rel="stylesheet">
+    <link href="css/titatoggle.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet"-->
+
+    <script type="text/javascript" src="js/scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxcore.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxdata.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxbuttons.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxlistbox.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxmenu.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxgrid.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxgrid.filter.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxpanel.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxcalendar.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxnumberinput.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxwindow.js"></script>
+    <script type="text/javascript" src="js/globalization/globalize.js"></script>
+    <script type="text/javascript" src="js/scripts/demos.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="js/scripts/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="js/scripts/trailerops.js"></script>
+    <script type="text/javascript" src="js/scripts/bootstrap-notify.js"></script>
+    <script type="text/javascript" src="js/scripts/bootstrap-notify.min.js"></script>
+</head>
+<!--button class="button">OPEN TRAILER</button-->
+
+        <style>
+        body {
+            background: #34495e;
+        }
+        </style>
+<body class='default'>
+    <div id='jqxWidget'>
+        <div id="jqxgrid"></div>
+
+       <div style="margin-top: 30px;">
+            <div id="cellbegineditevent"></div>
+            <div style="margin-top: 10px;" id="cellendeditevent"></div>
+       </div>
+       <div id="popupWindow">
+            <div class="m1"> <b align="middle">OPEN TRAILER</b></div>
+            <div style="overflow: hidden;">
+                <table>
+                    <tr>
+                        <td style="visibility:hidden"; align="right">CARRIER#:</td>
+                        <td style="visibility:hidden"; align="left"><input id="carriernbr" /></td>
+                    </tr>
+                    <tr>
+                        <td style="visibility:hidden"; align="right">Quantity:</td>
+                        <td style="visibility:hidden"; align="left"><div id="truckqty"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><div class="paper"><b>DELIVERY#:</b></div></td>
+                        <td align="left"><div class="deltxt"><input id="deliverynbr" disabled/></div></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><div class="mtext"><b>DOOR#:<b></div></td>
+                        <td align="left"><div class="doortxt"><input id="door" /></div></td>
+                    </tr>
+
+                    <tr>
+                        <td style="visibility:hidden"; align="right">TRAILER#:</td>
+                        <td style="visibility:hidden"; align="left"><div id="trailernbr"></div></td>
+                    </tr>
+                    <tr>
+                        <td style="visibility:hidden"; align="right">SCHEDULED DATE:</td>
+                        <td style="visibility:hidden"; align="left"><div id="sdate"></div></td>
+                    </tr>
+                    <tr>
+                        <td style="visibility:hidden"; align="right">STATUS:</td>
+                        <td style="visibility:hidden"; align="left"><div id="tstatus"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="middle"></td>
+                        <td style="padding-top: 10px;" align="middle">
+                            <input style="margin-middle: 5px;" type="button" id="Save" value="  OK  " />
+                            <input id="Cancel" type="button" value="Cancel" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+       </div>
+
+       <div id='Menu'>
+            <ul>
+                <li>Open Trailer</li>
+                <li>Receive Trailer</li>
+                <li>Cancel Delivery</li>
+            </ul>
+       </div>
+
+    </div>
+</body>
+</html>
