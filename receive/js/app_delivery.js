@@ -12,7 +12,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$interval', '$modal', '$log', '$
   $scope.gridOptions = {
     expandableRowTemplate: 'delivery_expanded.html',
     enableExpandableRowHeader: false,
-    expandableRowHeight: 300,
+    expandableRowHeight: 350,
     //subGridVariable will be available in subGrid scope
     expandableRowScope: {
       subGridVariable: 'subGridScopeVariable'
@@ -40,10 +40,11 @@ app.controller('MainCtrl', ['$scope', '$http', '$interval', '$modal', '$log', '$
     { name: 'UserID',displayName:'User ID'},
 	{ name:'Timestamp',displayName:'TimeStamp'},
     {
-    name: 'Expandable',
+    name: 'Receive',
 	headerCellClass: 'header-cell',
 	cellClass: 'center-align',
 	enableCellEdit: false,
+	enableSorting: false,
 	enableFiltering: false,
 	width: '14%',
 	cellTemplate: "<div class=\'ui-grid-cell-contents expand-row\'>" + "<button class=\'btn btn-primary\' ng-click=\'grid.api.expandable.toggleRowExpansion(row.entity)\'>Receive</button>" + "</div>"

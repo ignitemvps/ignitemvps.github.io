@@ -1,4 +1,4 @@
-var scanreceive = angular.module('scanreceive',['ui.grid','ui.grid.edit', 'ui.grid.saveState', 'ui.grid.selection', 'ui.grid.pinning', 'ui.bootstrap','ui-notification']);
+var scanreceive = angular.module('scanreceive',['ui.grid','ui.grid.expandable','ui.grid.edit', 'ui.grid.saveState', 'ui.grid.selection', 'ui.grid.pinning', 'ui.bootstrap','ui-notification']);
 
 
 
@@ -9,30 +9,14 @@ scanreceive.controller('MainCtrl', ['$scope', '$http', '$interval', '$modal', '$
     $window.location.href="/receive/receiving.html"
     };
 
-  $scope.myAppScopeProvider = {
-
-      showInfo : function(row) {
-           var modalInstance = $modal.open({
-                controller: 'InfoController',
-                templateUrl: 'ngTemplate/infoPopup.html',
-                resolve: {
-                  selectedRow: function () {
-                      return row.entity;
-                  }
-                }
-           });
-
-           modalInstance.result.then(function (selectedItem) {
-             $log.log('modal selected Row: ' + selectedItem);
-           }, function () {
-             $log.info('Modal dismissed at: ' + new Date());
-
-           });
-      }
-  }
-
   $scope.gridOptions = {
-
+    expandableRowTemplate: 'scanreceive_expanded.html',
+    enableExpandableRowHeader: false,
+    expandableRowHeight: 500,
+    //subGridVariable will be available in subGrid scope
+    expandableRowScope: {
+      subGridVariable: 'subGridScopeVariable'
+	  },
     showFooter: true,
     enableSorting: true,
     multiSelect: false,
@@ -47,16 +31,24 @@ scanreceive.controller('MainCtrl', ['$scope', '$http', '$interval', '$modal', '$
     enableGridMenu: true,
     onRegisterApi: function(gridApi){
     $scope.gridApi = gridApi;
-    },
-  appScopeProvider: $scope.myAppScopeProvider
+    }
 }
 
 
    $scope.gridOptions.columnDefs = [
      { name: 'ItemNbr',enableCellEdit: false },
      { name: 'QRCode',enableFiltering: false,enableSorting: false,enableCellEdit: false,cellTemplate:"<img width=\"100px\" ng-src=\"{{grid.getCellValue(row, col)}}\" lazy-src>"},
-    // {name:'MetaData',enableSorting: false,enableColumnMenu: false,},
-     {name:'Receive',displayName: ' ',enableSorting: false,enableFiltering: false,enableColumnMenu: false,cellTemplate:'<div id="scanbutton"><button type="button" class="btn btn-primary" ng-click="grid.appScope.showInfo(row)">Receive</button></div>'}
+    {
+	name: 'Receive',
+	headerCellClass: 'header-cell',
+	cellClass: 'center-align',
+	enableCellEdit: false,
+	enableSorting: false,
+	enableFiltering: false,
+	enableColumnMenu: false,
+	width: '14%', 
+    cellTemplate:"<div class=\'ui-grid-cell-contents expand-row\'>" + "<button class=\'btn btn-primary\' ng-click=\'grid.api.expandable.toggleRowExpansion(row.entity)\'>Receive</button>" + "</div>"
+	 }
   ];
         $scope.gridOptions.data = [
         {ItemNbr:765123,QRCode:"css/images/qrcode1.jpeg"},
@@ -75,28 +67,6 @@ $scope.slotid = [
 ];
 
 }]);
-
-
-scanreceive.controller('InfoController',
-    ['$scope', '$modal', '$modalInstance', '$filter', '$interval', 'selectedRow',
-    function ($scope, $modal, $modalInstance, $filter, $interval, selectedRow) {
-
-        $scope.selectedRow = selectedRow;
-
-       $scope.ok = function () {
-            $scope.selectedRow = null;
-            $modalInstance.close();
-        };
-
-        $scope.cancel = function () {
-            $scope.selectedRow = null;
-            $modalInstance.dismiss('cancel');
-        };
-
-    }
-
-]);
-
 
 
 
