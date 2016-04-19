@@ -17,7 +17,10 @@
   </head>
           <style>
         body {
-            background: #34495e;
+background: #3D7EAA; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #3D7EAA , #FFE47A); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #3D7EAA , #FFE47A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
         }
         </style>
   <body>
@@ -25,103 +28,13 @@
 <div ng-controller="MainCtrl">
 
   <h1 style="text-align:center;">Delivery Details[Double Click Row to Receive] <button class="btn btn-warning pull-right" style="margin-right:15px;" ng-click="gotomain()">Go To Main Menu</button></h1>
-  <div id="grid1" ui-grid="gridOptions" ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-selection ui-grid-exporter ui-grid-auto-resize ></div>
+  <div id="grid1" ui-grid="gridOptions" ui-grid-expandable ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-selection ui-grid-exporter ui-grid-auto-resize ></div>
 
 </div>
 
-<script type="text/ng-template" id="ngTemplate/infoPopup.html">
-	<div class="modal-header">
+<script type="text">
 	    <h4 style="text-align:center;">Receiving Screen</h4>
-	</div>
-	<div class="modal-body" ng-controller="MainCtrl" >
-
-
-        <form class="form-horizontal" >
-                 <div class="form-group">
-                  <label class="control-label col-sm-6" style="text-align:left;">Delivery Number: </label>
-                       <div class="col-sm-6">
-                  <input type="text" class="form-control" value={{selectedRow.DeliveryNo}} readonly>
-                       </div>
-                 </div>
-
-
-           <div class="form-group">
-           <label class="control-label col-sm-6" style="text-align:left;">PO Number:</label>
-                      <div class="col-sm-6">
-                      <select id="po" class="form-control" ng-model="posource" ng-options="pon.PoNbr for pon in pos" >
-                      <option value=''>Select PO</option>
-                      </select>
-                      </div>
-		   </div>
-
-
-
-
-          <div class="form-group">
-          <label class="control-label col-sm-6" style="text-align:left;">Item Number:</label>
-                                  <div class="col-sm-6">
-                                 <select id="item" class="form-control"  ng-disabled="!posource" ng-model="itemsource" ng-options="item.ItemNbr for item in posource.Items" ng-change="GetSelectedItem()">
-                                  <option value=''>Select Item</option>
-                                  </select>
-                                  </div>
-	      </div>
-
-
-          <div class="form-group">
-          <label class="control-label col-sm-6" style="text-align:left;"> Total Qty: </label>
-                                <div class="col-sm-6">
-                                <input id="totqty" class="form-control" ng-disabled="!posource || !itemsource" ng-model="itemsource.TotQty" readonly>
-                                </div>
-          </div>
-
-
-          <div class="form-group">
-           <label class="control-label col-sm-6" style="text-align:left;">Due Qty:</label>
-                     <div class="col-sm-6">
-                     <input id="dueqty" class="form-control" ng-disabled="!posource || !itemsource" ng-model="itemsource.DueQty" readonly>
-                     </div>
-          </div>
-
-
-
-          <div class="form-group">
-          <label class="control-label col-sm-6" style="text-align:left;">Qty to Receive:</label>
-                    <div class="col-sm-6">
-          <input id="rcvqty" type="number" class="form-control" ng-disabled="!posource || !itemsource" ng-model="rcvqty" ng-pattern="/^[0-9]+$/" min=0 max="{{itemsource.DueQty}}">
-                    </div>
-          </div>
-
-
-          <div class="form-group">
-          <label class="control-label col-sm-6" style="text-align:left;">No of Pallets:</label>
-                    <div class="col-sm-6">
-          <input id="pallet" class="form-control" ng-disabled="!posource || !itemsource || !rcvqty" ng-model="nopallet" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
-                    </div>
-          </div>
-
-
-          <div class="form-group">
-            <label class="control-label col-sm-6" style="text-align:left;">SlotID:</label>
-                  <div class="col-sm-6">
-              <select id="slot" class="form-control"  ng-disabled="!posource || !itemsource || !rcvqty || !nopallet" ng-model="slotsource" ng-options="slt.slot for slt in slotid">
-               <option value=''>Select Slot</option>
-               </select>
-                  </div>
-          </div>
-
-
-
-
-          <div class="form-group">
-          <label class="control-label col-sm-6" style="text-align:left;">UserID:</label>
-                    <div class="col-sm-6">
-                    <span class="form-control" ng-model="useridsource" >{{selectedRow.UserID}} </span>
-                    </div>
-          </div>
-</form>
-</div>
-
-<div class="modal-footer" ng-controller="notificationController" >
+<div ng-controller="notificationController" >
 
 	         <div class="btn-group-vertical">
 	           <button class="btn btn-primary"  ng-click="successHtml(posource.PoNbr,itemsource.ItemNbr,rcvqty,slotsource.slot)">Receive</button>
