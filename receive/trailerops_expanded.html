@@ -1,0 +1,49 @@
+﻿<!--<div ui-grid="row.entity.subGridOptions" style="height:150px;"></div>-->
+<html ng-app="app">
+<body>
+	<div class="container">
+	<div ng-controller="MainCtrl">
+	<h4 style="text-align:center;"><u>Trailer Details Screen</u></h4>
+     <form role="form" class="form-horizontal" >
+         <div class="form-group">
+          <div class="col-sm-4">
+		  <label>Delivery Number:</label>
+		  <input type="text" class="form-control" id="deliverynbr" value={{row.entity.deliverynbr}} readonly>
+		  </div>
+          <div class="col-sm-4">
+		  <label>Door Number:</label>
+          <input type="text" id="doornbr" class="form-control" ng-model="row.entity.door" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
+          </div>
+		  <div class="col-sm-4">
+		  <label>Status:</label>
+          <input type="text" id="doornbr" class="form-control" value={{row.entity.tstatus}} readonly>
+          </div>
+        </div>
+
+          <div class="form-group" ng-controller="notificationController">
+		    <div class="col-sm-4">
+	       <button class="btn-lg btn-primary"  ng-disabled="row.entity.tstatus == 'OPEN'" ng-click="row.entity.tstatus='OPEN';show = 1">Open Trailer</button>
+		   </div>
+		    <div class="col-sm-4">
+	       <button class="btn-lg btn-primary" ng-click="grid.appScope.deleteRow(row.entity);show = 2;error(row.entity.deliverynbr)" confirm="Are you sure?">Cancel Trailer</button>
+		   </div>
+		    <div class="col-sm-4">
+	       <button class="btn-lg btn-primary"  ng-disabled="row.entity.tstatus != 'OPEN'" ng-click="grid.appScope.gotoreceivebydel()">Receive Delivery</button>
+		   </div>
+		     <div class="col-sm-8" style="margin-top:10px">
+              <div ng-show="show==1" class="alert alert-success">
+			  <a class="close" data-dismiss="alert">×</a>
+               <strong>Success! Trailer {{row.entity.trailernbr}} opened for Delivery {{row.entity.deliverynbr}}!!</strong>
+			   </div>
+             </div>	  			 
+	 	  </div>
+		          
+   </div> 
+    <script src="js/trailerops.js"></script>		
+</form>
+
+</div>
+</div>
+</body>
+</html>
+

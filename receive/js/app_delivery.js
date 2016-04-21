@@ -6,13 +6,13 @@ app.controller('MainCtrl', ['$scope', '$http', '$interval', '$modal', '$log', '$
 
  $scope.gotomain = function(){
 
-    $window.location.href="/receive/receiving.html"
+    $window.location.href="trailer.html"
     };
 
   $scope.gridOptions = {
     expandableRowTemplate: 'delivery_expanded.html',
     enableExpandableRowHeader: false,
-    expandableRowHeight: 350,
+    expandableRowHeight: 375,
     //subGridVariable will be available in subGrid scope
     expandableRowScope: {
       subGridVariable: 'subGridScopeVariable'
@@ -41,21 +41,29 @@ app.controller('MainCtrl', ['$scope', '$http', '$interval', '$modal', '$log', '$
 	{ name:'Timestamp',displayName:'TimeStamp'},
     {
     name: 'Receive',
+	displayName:' ',
 	headerCellClass: 'header-cell',
 	cellClass: 'center-align',
 	enableCellEdit: false,
 	enableSorting: false,
 	enableFiltering: false,
+    enableColumnMenu: false,
 	width: '14%',
-	cellTemplate: "<div class=\'ui-grid-cell-contents expand-row\'>" + "<button class=\'btn btn-primary\' ng-click=\'grid.api.expandable.toggleRowExpansion(row.entity)\'>Receive</button>" + "</div>"
-     }
+	cellTemplate: "<div class=\'ui-grid-cell-contents expand-row\'>" + "<button class=\'btn btn-primary\' ng-disabled=\'isDisabled\' ng-click=\'grid.api.expandable.toggleRowExpansion(row.entity);grid.appScope.toggle = !grid.appScope.toggle\'>{{grid.appScope.buttontext}}</button>" + "</div>"
+     },
+
   ];
 $http.get('data1.json')
   .success(function(data) {
    $scope.gridOptions.data = data;
    });
 
+   $scope.toggle = true;
 
+    $scope.$watch('toggle', function(){
+        $scope.buttontext = $scope.toggle ? 'Show' : 'Hide';
+    });
+	
 $http.get('data6.json')
  .success(function(result) {
     //$scope.Pos = result.Pos;
@@ -63,8 +71,7 @@ $http.get('data6.json')
     $scope.items = result.Items;
 });
 
-
-
+	
 $scope.slotid = [
  {id:1,slot:'A001'},
 {id:2,slot:'B001'},
@@ -75,15 +82,4 @@ $scope.slotid = [
 
 }]);
 
-
-app.controller('notificationController', function($scope, Notification) {
-
-    $scope.successHtml = function(po,item,qty,slot) {
-
-                  Notification.success({message:"Delivery Received and Label Generated Successfully..!!",delay: null});
-                 //alert("item "+item+ " received for PO " + po);
-                };
-
-
- });
 

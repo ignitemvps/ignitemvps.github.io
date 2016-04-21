@@ -1,8 +1,9 @@
 <!--<div ui-grid="row.entity.subGridOptions" style="height:150px;"></div>-->
-    <script src="js/app_delivery.js"></script>
+<html ng-app="app">
+<body>   
 	<div class="container">
 	<div ng-controller="MainCtrl">
-	<h4 style="text-align:center;">Receiving Screen</h4>
+	<h4 style="text-align:center;"><u>Receive By Delivery</u></h4>
      <form role="form" class="form-horizontal" >
          <div class="form-group">
           <div class="col-sm-4">
@@ -60,17 +61,22 @@
           </div>
 		</div>
 		
-   <div ng-controller="notificationController" >
+   <div>
            <div class="form-group">
-		    <div class="col-sm-6">
-	       <button class="btn btn-primary pull-left"  ng-click="successHtml(posource.PoNbr,itemsource.ItemNbr,rcvqty,slotsource.slot)">Receive</button>
+		    <div class="col-md-12">
+	       <button class="btn-lg btn-primary center-block"  ng-disabled = "!slotsource" ng-click="show = 1">Receive</button>
 		   </div>
-		    <div class="col-sm-6">
-            <button class="btn btn-primary btnCustom pull-right" ng-click="cancel()">Cancel</button>
-			</div>
+		    <div class="col-sm-8" style="margin-top:10px;width:1000px">
+             <div ng-show="show==1" class="alert alert-success">
+			 <a class="close" data-dismiss="alert">×</a>
+              <strong>Success! Delivery {{row.entity.DeliveryNo}} for PO {{posource.PoNbr}} Received Successfully. Label {{posource.PoNbr}}{{itemsource.ItemNbr}}-{{slotsource.slot}} has been generated!!</strong>
+			 </div>
+            </div>	  	
           </div>
    </div> 
+      <script src="js/app_delivery.js"></script>
 </form>
 </div>
 </div>
-
+</body>
+</html>

@@ -1,128 +1,58 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title id='Description'>IGNITE-TRAILER OPERATIONS</title>
+﻿ 	 <!doctype html>
+<html ng-app="app">
 
-    <div class="a1">
-
-        <h2> <a href="http://localhost:8080/app/demos/vijay/index.html"><!--img src="styles/images/Home_TOPS.jpg" style="width:82px; height:86px" title="HOME" alt="Home"--></a>TRAILER OPERATIONS</h2>
-    </div>
-    <meta name="description" content="TRAILER OPERATIONS" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 minimum-scale=1" />
-    <link rel="stylesheet" href="css/jqxbase.css" type="text/css" />
-    <link rel="stylesheet" href="css/animate.css" type="text/css" />
-
-        <!-- Core Cascading Style Sheets -->
-    <link href="css/Flash.Mani.css" rel="stylesheet">
-    <link href="css/Flash.manifont.css" rel="stylesheet">
-    <link href="css/Flash.mani.boot.css" rel="stylesheet">
-    <link href="css/Flash.mani.tmrw.css" rel="stylesheet">
-    
-    <!--link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/tomorrow-night-eighties.min.css" rel="stylesheet">
-
-    < Custom Cascading Style Sheets >
-    <link href="css/icomoon.css" rel="stylesheet">
-    <link href="css/titatoggle.min.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet"-->
-
-    <script type="text/javascript" src="js/scripts/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxcore.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxdata.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxbuttons.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxscrollbar.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxlistbox.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxdropdownlist.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxmenu.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxgrid.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxgrid.filter.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxgrid.sort.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxgrid.selection.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxpanel.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxcalendar.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxdatetimeinput.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxcheckbox.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxnumberinput.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxwindow.js"></script>
-    <script type="text/javascript" src="js/globalization/globalize.js"></script>
-    <script type="text/javascript" src="js/scripts/demos.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxgrid.pager.js"></script>
-    <script type="text/javascript" src="js/scripts/jqxgrid.edit.js"></script>
-    <script type="text/javascript" src="js/scripts/trailerops.js"></script>
-    <script type="text/javascript" src="js/scripts/bootstrap-notify.js"></script>
-    <script type="text/javascript" src="js/scripts/bootstrap-notify.min.js"></script>
-</head>
-<!--button class="button">OPEN TRAILER</button-->
-
-        <style>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="js/scripts/angular-confirm.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css" />
+    <script src="https://code.angularjs.org/1.4.0-beta.4/angular-animate.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ui-grid.info/release/ui-grid-unstable.js"></script>
+    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid-unstable.css" type="text/css">
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+    <link rel="stylesheet" href="css/angular-ui-notification.css">
+<script src="js/angular-ui-notification.js"></script>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+  </head>
+          <style>
         body {
-            background: #34495e;
+background: #3D7EAA; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #3D7EAA , #FFE47A); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #3D7EAA , #FFE47A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
         }
+							h1 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  cursor: pointer;
+  border: none;
+  font: normal 50px/normal "Passero One", Helvetica, sans-serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  text-shadow: 0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(187,187,187) , 0 4px 0 rgb(185,185,185) , 0 5px 0 rgb(170,170,170) , 0 6px 1px rgba(0,0,0,0.0980392) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 5px 10px rgba(0,0,0,0.247059) , 0 10px 10px rgba(0,0,0,0.2) , 0 20px 20px rgba(0,0,0,0.14902) ;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+}
         </style>
-<body class='default'>
-    <div id='jqxWidget'>
-        <div id="jqxgrid"></div>
+  <body>
 
-       <div style="margin-top: 30px;">
-            <div id="cellbegineditevent"></div>
-            <div style="margin-top: 10px;" id="cellendeditevent"></div>
-       </div>
-       <div id="popupWindow">
-            <div class="m1"> <b align="middle">OPEN TRAILER</b></div>
-            <div style="overflow: hidden;">
-                <table>
-                    <tr>
-                        <td style="visibility:hidden"; align="right">CARRIER#:</td>
-                        <td style="visibility:hidden"; align="left"><input id="carriernbr" /></td>
-                    </tr>
-                    <tr>
-                        <td style="visibility:hidden"; align="right">Quantity:</td>
-                        <td style="visibility:hidden"; align="left"><div id="truckqty"></div></td>
-                    </tr>
-                    <tr>
-                        <td align="right"><div class="paper"><b>DELIVERY#:</b></div></td>
-                        <td align="left"><div class="deltxt"><input id="deliverynbr" disabled/></div></td>
-                    </tr>
-                    <tr>
-                        <td align="right"><div class="mtext"><b>DOOR#:<b></div></td>
-                        <td align="left"><div class="doortxt"><input id="door" /></div></td>
-                    </tr>
+<div ng-controller="MainCtrl">
 
-                    <tr>
-                        <td style="visibility:hidden"; align="right">TRAILER#:</td>
-                        <td style="visibility:hidden"; align="left"><div id="trailernbr"></div></td>
-                    </tr>
-                    <tr>
-                        <td style="visibility:hidden"; align="right">SCHEDULED DATE:</td>
-                        <td style="visibility:hidden"; align="left"><div id="sdate"></div></td>
-                    </tr>
-                    <tr>
-                        <td style="visibility:hidden"; align="right">STATUS:</td>
-                        <td style="visibility:hidden"; align="left"><div id="tstatus"></div></td>
-                    </tr>
-                    <tr>
-                        <td align="middle"></td>
-                        <td style="padding-top: 10px;" align="middle">
-                            <input style="margin-middle: 5px;" type="button" id="Save" value="  OK  " />
-                            <input id="Cancel" type="button" value="Cancel" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
-       </div>
+  <h1 style="text-align:center;">Trailer Operations<button class="btn btn-warning pull-right" style="margin-right:15px;" ng-click="gotomain()">Go To Main Menu</button></h1>
+  <div id="grid1" ui-grid="gridOptions" ui-grid-expandable ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-selection ui-grid-exporter ui-grid-auto-resize ></div>
 
-       <div id='Menu'>
-            <ul>
-                <li>Open Trailer</li>
-                <li>Receive Trailer</li>
-                <li>Cancel Delivery</li>
-            </ul>
-       </div>
+</div>
 
-    </div>
-</body>
+   <script src="js/trailerops.js"></script>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-var appforreport = angular.module('appforreport',['ui.grid', 'monospaced.qrcode', 'ui.grid.saveState','ui.grid.selection', 'ui.grid.cellNav', 'ui.grid.resizeColumns', 'ui.grid.moveColumns', 'ui.grid.pinning', 'ui.bootstrap', 'ui.grid.autoResize','ui-notification']);
+var appforreport = angular.module('appforreport',['ui.grid', 'monospaced.qrcode','ui.grid.expandable', 'ui.grid.saveState','ui.grid.selection', 'ui.grid.pinning', 'ui.bootstrap','ui-notification']);
 
 
 
@@ -6,34 +6,18 @@ appforreport.controller('MainCtrl', ['$scope', '$http', '$interval', '$modal', '
 
  $scope.gotomain = function(){
 
-    $window.location.href="/receive/receiving.html"
+    $window.location.href="receiving.html"
     };
+ 
 
- $scope.myAppScopeProvider = {
-
-     showInfo : function(row) {
-        var modalInstance = $modal.open({
-           controller: 'InfoController',
-         templateUrl: 'ngTemplate/infoPopup.html',
-       resolve: {
-       selectedRow: function () {
-         return row.entity;
-   }
- }
-});
-
-          modalInstance.result.then(function (selectedItem) {
-           $log.log('modal selected Row: ' + selectedItem);
-       }, function () {
-       $log.info('Modal dismissed at: ' + new Date());
-
-         });
-  }
-}
-
-
-  $scope.gridOptions1 = {
-
+  $scope.gridOptions = {
+    expandableRowTemplate: 'receivingreport_expanded.html',
+    enableExpandableRowHeader: false,
+    expandableRowHeight: 400,
+    //subGridVariable will be available in subGrid scope
+    expandableRowScope: {
+      subGridVariable: 'subGridScopeVariable'
+	  },
     showFooter: true,
     enableSorting: true,
     multiSelect: false,
@@ -48,59 +32,50 @@ appforreport.controller('MainCtrl', ['$scope', '$http', '$interval', '$modal', '
     onRegisterApi: function(gridApi){
       $scope.gridApi = gridApi;
     },
-    appScopeProvider: $scope.myAppScopeProvider
   }
 
-    $scope.gridOptions1.columnDefs = [
+    $scope.gridOptions.columnDefs = [
        { name: 'PoNbr' },
        {name:'DeliveryNo'},
        {name:'ItemNbr'},
        {name:'LabelNo'},
        { name: 'UserID'},
        { name: 'Timestamp'},
- {name:'ShowLabel',displayName: ' ',enableSorting: false,enableFiltering: false,enableColumnMenu: false,cellTemplate:'<button class="btn btn-primary" ng-click="grid.appScope.showInfo(row)">Show Label</button>'}
+       {
+	name: 'Receive',
+	displayName:' ',
+	headerCellClass: 'header-cell',
+	cellClass: 'center-align',
+	enableCellEdit: false,
+	enableSorting: false,
+	enableFiltering: false,
+	enableColumnMenu: false,
+	width: '14%', 
+    cellTemplate: "<div class=\'ui-grid-cell-contents expand-row\'>" + "<button class=\'btn btn-primary\' ng-disabled=\'isDisabled\' ng-click=\'grid.api.expandable.toggleRowExpansion(row.entity);grid.appScope.toggle = !grid.appScope.toggle\'>{{grid.appScope.buttontext}}</button>" + "</div>"
+	 }
 ];
 
 
 
   $http.get('data7.json')
     .success(function(data) {
-      $scope.gridOptions1.data = data;
+      $scope.gridOptions.data = data;
     });
 
+   $scope.toggle = true;
 
+    $scope.$watch('toggle', function(){
+        $scope.buttontext = $scope.toggle ? 'Show Label' : 'Hide';
+    });   $scope.toggle = true;
+
+    $scope.$watch('toggle', function(){
+        $scope.buttontext = $scope.toggle ? 'Show Label' : 'Hide';
+    });
+
+	$scope.giveprint = function(printsec) {
+  window.print();
+  };
+  
 }]);
 
-
-appforreport.controller('InfoController',
-   ['$scope', '$modal', '$modalInstance', '$filter', '$interval', 'selectedRow',
-   function ($scope, $modal, $modalInstance, $filter, $interval, selectedRow) {
-
-     $scope.selectedRow = selectedRow;
-       $scope.ok = function () {
-            $scope.selectedRow = null;
-            $modalInstance.close();
-        };
-
-        $scope.cancel = function () {
-            $scope.selectedRow = null;
-            $modalInstance.dismiss('cancel');
-        };
-
-    }
-
-]);
-
-
-
-
-appforreport.controller('notificationController', function($scope) {
-
-              $scope.giveprint = function(printsec) {
-                              window.print();
-              };
-
-
-
- });
 

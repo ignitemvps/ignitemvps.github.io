@@ -8,7 +8,7 @@
 	</head>
     <style>
         body {
-            background: #34495e;
+            background: linear-gradient(to left, #3D7EAA , #FFE47A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
     </style>
     <body class="container">
@@ -60,9 +60,9 @@
 						<!--Code to disable submit button is written here-->
  
                         <div class="form-group">
-                            <input ng-disabled="frm.$invalid" class="btn" id="btn" type="submit" ng-click="call()" value="Submit">
-                            <input class="btn" id="btn" type="reset" ng-click="cancel()" value="Clear">
-                            <input class="btn" id="btn" type="reset" ng-click="logoff()" value="Logoff">
+                            <input ng-disabled="frm.$invalid" class="btn btn-warning" type="submit" ng-click="call()" value="Submit">
+                            <input class="btn btn-warning" type="reset" ng-click="cancel()" value="Clear">
+                            <input class="btn btn-warning" type="reset" ng-click="logoff()" value="Logoff">
                         </div>
                     </form>							
                 </div>

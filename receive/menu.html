@@ -5,7 +5,8 @@
 <title>Receiving Menu</title>
 <style>
 body {
-  background: #34495e;
+  background: linear-gradient(to left, #3D7EAA , #FFE47A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Lato', Arial, sans-serif;
 }
 
 .container {
@@ -13,13 +14,6 @@ body {
   display: block;
   margin: auto;
   position: relative;
-}
-
-h1 {
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  color: #f1c40f;
 }
 
 .menu_opener {
@@ -53,7 +47,8 @@ h1 {
 }
 
 .menu_opener_label {
-  background: #f1c40f;
+  background: #fff;
+  color: #52be7f;
   width: 210px;
   height: 200px;
   display: block;
@@ -66,13 +61,14 @@ h1 {
   text-align: center;
   font-weight: bold;
   font-size:40px;
-  color: #000;
+
 }
 .menu_opener_label:after {
   position: absolute;
   top: 50px;
   left: 50px;
-  background: #000;
+  background: #fff;
+  color: #52be7f;
   content: "";
   width: 100px;
   height: 100px;
@@ -84,7 +80,8 @@ h1 {
   position: absolute;
   top: 90px;
   left: 50px;
-  background: #000;
+  background: #fff;
+  color: #52be7f;
   content: "";
   width: 50px;
   height: 10px;
@@ -101,13 +98,15 @@ h1 {
   position: absolute;
   top: 225px;
   left: 225px;
-  background: #ecf0f1;
+  /*background: #ecf0f1; */
+  background: #fff;
+  color: #52be7f;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 
 .link_one {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAgMAAADXB5lNAAAACVBMVEX///8AAAAAAAB+UaldAAAAAnRSTlMAgJsrThgAAAB+SURBVHhe3cyxjcMwFETBr8RFqBrWo2pYBBNOlZdy/4UGbMCb7QumPrprtPCaLdyriiM8O8PFiPBiRrhZER52cRIMToLJSbA4CTZBQBAQBAQBndAJndAJnTCSYCbBSoKdBEYSzCRYSbCTwEiCmQQrCXbJ+R+q8n45VP1CeH9/mC1fxjmFPCwAAAAASUVORK5CYII826f6fa0b1d2d29dd5b523f646d57d73") #f1c40f no-repeat center center;
+  background: url("css/images/home1.jpg") #fff no-repeat center center;
   width: 140px;
   height: 140px;
   display: block;
@@ -117,11 +116,11 @@ h1 {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+  color: #52be7f;
 }
 
 .link_two {
-  background: #f1c40f no-repeat center center;
+  background: #fff no-repeat center center;
   width: 140px;
   height: 140px;
   display: block;
@@ -131,11 +130,12 @@ h1 {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+  color: #52be7f;
  }
 
 .link_three {
-  background: #f1c40f no-repeat center center;
+  /*background: #f1c40f no-repeat center center;*/
+  background: #fff no-repeat center center;
   width: 140px;
   height: 140px;
   display: block;
@@ -145,11 +145,11 @@ h1 {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+  color: #52be7f;
  }
 
 .link_four {
-  background: #f1c40f no-repeat center center;
+  background: #fff no-repeat center center;
   width: 140px;
   height: 140px;
   display: block;
@@ -159,7 +159,7 @@ h1 {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+  color: #52be7f;
  }
 
 </style>
@@ -172,7 +172,7 @@ h1 {
       <label for="menu_opener_id" class="menu_opener_label">Menu</label>
       <a href="index.html" class="link_one link_general"></a>
       <a href="receiving.html" class="link_two link_general">Receiving Ops</a>
-      <a href="trailerops.html" class="link_three link_general">Trailer Ops</a>
+      <a href="trailer.html" class="link_three link_general">Delivery Mgmt</a>
       <a href="blog.html" class="link_four link_general">Dashboard</a>
     </input>
   </div>
